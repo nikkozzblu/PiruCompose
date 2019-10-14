@@ -35,3 +35,7 @@ Start the jupyter notebook engine
 ```
 > jupyter notebook
 ```
+
+The reading of file heavily depends on the PyGuitarPro library
+
+See https://pyguitarpro.readthedocs.io/en/stable/ for docs
