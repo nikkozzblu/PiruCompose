@@ -15,9 +15,8 @@ See https://docs.anaconda.com/anaconda/install/
 Create a conda conda virtual default environement, activate it and install dependencies 
 
 ```
-> conda create --name pirucompose
+> conda create --name pirucompose python=3.7 anaconda
 > conda activate pirucompose
-> conda install -c anaconda pip
 > pip install -r requirements.txt
 ```
 
@@ -27,7 +26,16 @@ https://drive.google.com/open?id=1HWlsQZWir3c4cePo0LFP-knOqBTtgiKI
 
 Unzip them in the data directory
 
+Add pirucompose environement to jupyter 
+```
+> python -m ipykernel install --user --name pirucompose --display-name "PiruCompose"
+```
+
 Start the jupyter notebook engine
 ```
 > jupyter notebook
 ```
+
+The reading of file heavily depends on the PyGuitarPro library
+
+See https://pyguitarpro.readthedocs.io/en/stable/ for docs
