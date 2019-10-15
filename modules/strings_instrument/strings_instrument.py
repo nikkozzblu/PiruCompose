@@ -3,13 +3,13 @@ import keyboard
 
 
 def make(tuning = tuning.regular_guitar):
-    return String_instrument().set_tuning(tuning)
+    return Strings_instrument().set_tuning(tuning)
 
 def make_regular_guitar():
     return make(tuning = tuning.regular_guitar)
 
 
-class String_instrument:
+class Strings_instrument:
     """
     class String_instrument describes an instrument with strings and frets
     """
