@@ -1,31 +1,28 @@
+import os.path
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '../note'))
+
 import tuning
-import note
+from note import get_notes_keyboard_indices_from_tags
 
-def make(tuning = tuning.regular_guitar):
-    return Strings_instrument().set_tuning(tuning)
+def make_guitar():
+    """ Builds an instance of Strings_instrument with EADGBE tuning """
+    return Strings_instrument(instrument_tuning = tuning.guitar)
 
-def make_regular_guitar():
-    return make(tuning = tuning.regular_guitar)
+def make_mandolin():
+    """ Builds an instance of Strings_instrument with GDAE tuning """
+    return Strings_instrument(intrument_tuning = tuning.mandolin)
 
 class Strings_instrument:
     """
     class String_instrument describes an instrument with strings and frets
     """
-    def __init__(self):
-        self._tuning = note.get_keyboard_indices(tuning.regular_guitar)
-        self.init_frets()
+    def __init__(self, instrument_tuning = tuning.guitar):
+        self._tuning = get_notes_keyboard_indices_from_tags(instrument_tuning)
+        self._frets = [None] * self.count_strings()
 
     def count_strings(self):
         return len(self._tuning)
-
-    def init_frets(self):
-        self._frets = [None] * self.count_strings()
-        return self
-
-    def set_tuning(self, tuning):
-        self._tuning = note.get_keyboard_indices(tuning)
-        self.init_frets()
-        return self
 
     def press_strings(self, frets):
         if len(frets) == self.count_strings():
